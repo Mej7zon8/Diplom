@@ -1,0 +1,16 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:9000/
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:9000/categorize
+Content-Type: application/json
+
+{
+    "text": "Го в КС",
+    "candidate_labels": ["travel", "fashion", "clothes", "insurance", "politics", "movie", "fitness", "health", "computer", "education", "finance", "sports", "music", "food", "entertainment", "shopping", "gaming", "photography", "art", "real-estate", "automotive", "adventure", "cooking", "parenting", "lifestyle", "wellness", "marketing", "business", "investment", "environment", "skincare", "nutrition", "vacation", "home-decor", "pets", "gadgets", "startup"]
+}
+
+###
