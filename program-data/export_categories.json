@@ -1,0 +1,23 @@
+[
+    {
+        "username": "Artem",
+        "name": "Artem",
+        "email": "v.pvapvapv@bk.ru",
+        "categories": {
+            "automotive": 14.34231150150299,
+            "finance": 0.20252452790737152
+        }
+    },
+    {
+        "username": "Nikita",
+        "name": "Nikita",
+        "email": "123123@mail.ru",
+        "categories": {}
+    },
+    {
+        "username": "Danya",
+        "name": "Danya",
+        "email": "aaa2221@mail.ru",
+        "categories": {}
+    }
+]

@@ -1,0 +1,38 @@
+<div class="root">
+  <div class="header">
+    <div class="line">
+      <img class="logo" src="assets/icons/logo-muiv-mini.svg">
+      <span>Чаты</span>
+
+      <!-- Create chat button -->
+      <button mat-icon-button (click)="createChatClick.emit()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <div class="line dense-2">
+      <!-- Chat search -->
+      <mat-form-field appearance="outline" class="search-field">
+        <input matInput placeholder="Поиск" (input)="model.search = searchEl.value" #searchEl>
+      </mat-form-field>
+    </div>
+  </div>
+
+  @if (data == null || data.length == 0) {
+    <span class="hint">
+      Для создания чата нажмите на кнопку в правом верхнем углу.
+    </span>
+  } @else {
+    @for (chat of data; track chat.id) {
+      @if (satisfies(chat)) {
+        <app-chat-list-item
+          (contextmenu)="contextMenuComponent.OpenWithItems($event, generateContextMenu(chat))"
+          [data]="chat"
+          [selected]="model.selected == chat.id"
+          (click)="model.selected = chat.id;chatSelected.emit(chat)"></app-chat-list-item>
+      }
+    }
+  }
+</div>
+
+<app-context-menu #contextMenuComponent></app-context-menu>

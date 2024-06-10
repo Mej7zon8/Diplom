@@ -1,0 +1,51 @@
+.root {
+  display: flex;
+  width: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 70%;
+
+  gap: 0.5em;
+
+  border-radius: 10px;
+
+  background-color: #f1f0f0;
+  &.sent {
+    margin-left: auto;
+    background-color: #c6eff8;
+  }
+}
+
+.message-content {
+}
+.message-info {
+  width: 100%;
+  font-size: 0.8em;
+  line-height: 1;
+
+  display: flex;
+  gap: 2ch;
+
+  justify-content: space-between;
+
+  .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-style: italic;
+  }
+}
+
+.delivered {
+  color: #1e88e5;
+  font-size: 1em;
+  line-height: 1;
+  height: auto;
+  width: auto;
+  margin: 0 4px;
+}

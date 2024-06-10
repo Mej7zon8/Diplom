@@ -1,0 +1,12 @@
+<div style="visibility: hidden; position: fixed"
+     [style.left]="position.x"
+     [style.top]="position.y"
+     [matMenuTriggerFor]="contextMenu">
+</div>
+<mat-menu #contextMenu="matMenu">
+  <ng-template matMenuContent let-data='data'>
+    @for ( item of items; track trackByItem) {
+      <button mat-menu-item (click)="item.action()" [disabled]="item.disabled">{{item.text}}</button>
+    }
+  </ng-template>
+</mat-menu>

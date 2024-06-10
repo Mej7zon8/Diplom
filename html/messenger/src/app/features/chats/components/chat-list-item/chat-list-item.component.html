@@ -1,0 +1,24 @@
+@if (model) {
+  <div class="root" [class.selected]="selected">
+    <div class="avatar">
+      <div class="avatar-icon" [style.background-color]="model.avatar.background">
+        <span [style.color]="model.avatar.foreground">{{ model.avatar.letter }}</span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="header">
+        <span class="name">{{ model.chat.name }}</span>
+        <span class="date">{{ lastMessageDate }}</span>
+      </div>
+      <div class="message">
+        <span class="last-message-text">
+          @if (lastMessageDate == "") {
+            <span>*сообщений нет*</span>
+          } @else {
+            {{ model.chat.last_message.content.text }}
+          }
+        </span>
+      </div>
+    </div>
+  </div>
+}

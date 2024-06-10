@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Создать новый чат</h1>
+<div mat-dialog-content>
+  <!-- Chat name -->
+  @if (selected.length > 1) {
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Название чата</mat-label>
+      <input matInput [(ngModel)]="name">
+    </mat-form-field>
+    <br/>
+    <br/>
+  }
+
+  <!-- User selection -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Выберите пользователей</mat-label>
+    <mat-chip-grid #chipGrid>
+      @for (user of selected; track user) {
+        <mat-chip-row
+          (removed)="remove(user)">
+          {{ user }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      }
+      <input placeholder="Новый пользователь..."
+             [matChipInputFor]="chipGrid"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="true"
+             (matChipInputTokenEnd)="add($event)"/>
+    </mat-chip-grid>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="createChat()">Подтвердить</button>
+</div>

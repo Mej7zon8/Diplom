@@ -1,0 +1,7 @@
+<!--<div class="flex-item" [class.visible]="visible"></div>-->
+@if (ad$ | async; as data) {
+  @if (data.data) {
+    <img class="flex-item" [class.visible]="visible" alt="ad" [src]="'data:image/png;base64, ' + data.data.image"
+         (load)="loaded.emit()" (click)="window.open(data.data.config.url, '__blank')">
+  }
+}

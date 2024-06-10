@@ -1,0 +1,28 @@
+<div class="root">
+  <div class="content">
+    @if (model.chat == null) {
+      <div class="big-hint-root">
+        <div class="big-hint-content">
+          <span>Для начала общения выберите чат.</span>
+          <span>Выбор чатов находится слева.</span>
+        </div>
+      </div>
+    } @else {
+      <!-- Display the list of messages -->
+      @for (message of (dataEmitter | async)?.data || []; track message.id) {
+        <app-chat-message [data]="message" [name]="getUserName(message)"></app-chat-message>
+      }
+    }
+  </div>
+  <div class="actions">
+    <mat-form-field appearance="outline" >
+      <input matInput placeholder="Введите сообщение"
+             [disabled]="disabled" #messageText (keydown.enter)="sendMessage(messageText)">
+      <button mat-icon-button matSuffix
+              (click)="sendMessage(messageText)"
+              [disabled]="disabled || messageText.value == ''">
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</div>

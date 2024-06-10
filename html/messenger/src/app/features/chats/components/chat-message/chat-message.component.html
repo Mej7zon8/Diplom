@@ -1,0 +1,16 @@
+<div class="root">
+  <div class="message-box" [class.sent]="sentByUs">
+    <div class="message-content">
+      {{ data.content.text }}
+    </div>
+    <div class="message-info">
+      <span class="name">{{ name }}</span>
+      <span class="time">
+        <span>{{ data.created | date: 'HH:mm' }}</span>
+        @if (sentByUs) {
+          <mat-icon class="delivered">done_all</mat-icon>
+        }
+      </span>
+    </div>
+  </div>
+</div>

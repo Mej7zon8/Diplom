@@ -1,0 +1,27 @@
+<div class="root" [class.invisible]="invisible" [class.hidden]="hidden">
+  @if (error == "") {
+    <div class="content">
+      <h1>Загружается</h1>
+    </div>
+  } @else {
+    <div class="error-box">
+      <div class="error-center">
+        <h1> {{ errorTitle }} </h1>
+        <br/>
+      </div>
+      <div class="error-bottom">
+        @if (errorSuggestion) {
+          <div class="error-suggestion">
+            {{ errorSuggestion }}
+          </div>
+        }
+        @if (rawError) {
+          <div class="raw-error">
+            <span>Ошибка:</span>
+            <span class="error-raw">{{ error }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

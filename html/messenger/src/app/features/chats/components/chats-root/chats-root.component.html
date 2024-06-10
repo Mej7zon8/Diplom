@@ -1,0 +1,33 @@
+<!-- Preloader -->
+<app-preloader #preloader></app-preloader>
+
+<div class="root">
+  <!-- Left sidebar -->
+  @if (dataEmitter | async; as data) {
+    <div class="sidebar">
+      <div class="chat-list-container">
+        <app-chat-list
+          [data]="data.data"
+          (chatLeave)="leaveChat($event)"
+          (chatSelected)="model.selected_chat = $event"
+          (createChatClick)="createChat()"
+        ></app-chat-list>
+      </div>
+
+      <div class="ad-banner">
+        <app-ad-banner></app-ad-banner>
+      </div>
+
+      <div class="actions">
+        <button mat-icon-button color="warn" (click)="exit()">
+          <mat-icon>exit_to_app</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="content">
+      <!-- Chat -->
+      <app-chat [chat]="model.selected_chat"></app-chat>
+    </div>
+  }
+
+</div>
